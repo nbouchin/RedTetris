@@ -1,0 +1,62 @@
+Serveur:
+
+Class Heap {
+	heap[][]
+
+	add(piece)
+	remove_line(x, n)
+}
+
+Class Plate {
+	Heap,
+	Piece,
+}
+
+Class Player {
+	id,
+	nick,
+	Plate,
+
+	setNick()
+	setPlate()
+}
+
+Class Game {
+	id,
+	name,
+	seed,
+	state,
+	difficulty,
+	maxPlayer,
+	playerList[],
+
+	addPlayer()
+	delPlayer()
+	setDifficulty()
+	startGame()
+	stopGame()
+	send_piece()
+	generate_piece(seed)
+}
+
+Class Piece {
+	id,
+	name,
+	shape[],
+	rotation,
+	position_x,
+	position_y,
+
+	func move(direction)
+
+	func step() {
+		while (can_fall()) {
+			move(down)
+		}
+	}
+
+	func rotate(direction)
+	func can_fall() {
+		check_if_merging_with_heap()
+	}
+}
